@@ -12,6 +12,7 @@ if (BACKEND) {
     target: BACKEND,
     changeOrigin: true,
     pathRewrite: { '^/api': '' },
+    headers: { 'ngrok-skip-browser-warning': 'true' },
     on: {
       error: (err, req, res) => {
         console.error('[proxy]', err.message)
