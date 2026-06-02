@@ -1,0 +1,268 @@
+.canais-page { display: flex; flex: 1; overflow: hidden; }
+
+.canais-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.canais-sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.canais-sidebar-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.canais-novo-btns { display: flex; gap: 6px; }
+
+.canal-novo-btn {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  transition: opacity 0.12s;
+}
+.canal-novo-btn:hover { opacity: 0.8; }
+.canal-novo-btn.instagram { background: rgba(200,100,50,0.2); color: #e87040; border-color: rgba(200,100,50,0.3); }
+.canal-novo-btn.whatsapp  { background: rgba(50,200,100,0.15); color: #40c878; border-color: rgba(50,200,100,0.25); }
+.canal-novo-btn.telegram  { background: rgba(0,136,204,0.15); color: #29a8e0; border-color: rgba(0,136,204,0.25); }
+.canal-novo-btn.tiktok    { background: rgba(255,0,80,0.12);  color: #ff2d55;  border-color: rgba(255,0,80,0.25); }
+
+.canais-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.canais-empty-sidebar {
+  padding: 16px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.canal-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.12s;
+  width: 100%;
+}
+.canal-item:hover { background: var(--bg3); border-color: var(--border); }
+.canal-item.active { background: var(--bg3); border-color: var(--accent); }
+
+.canal-tipo-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.canal-tipo-badge.instagram { background: rgba(200,100,50,0.2); color: #e87040; }
+.canal-tipo-badge.whatsapp  { background: rgba(50,200,100,0.15); color: #40c878; }
+.canal-tipo-badge.telegram  { background: rgba(0,136,204,0.15); color: #29a8e0; }
+.canal-tipo-badge.tiktok    { background: rgba(255,0,80,0.12);  color: #ff2d55; }
+
+.canal-info { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+.canal-nome { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.canal-tipo-label { font-size: 11px; color: var(--muted); }
+
+.canal-status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.canal-status-dot.ativo { background: var(--accent); }
+
+.canais-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.canais-empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.canais-form-wrap { padding: 24px; max-width: 520px; }
+
+.canais-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.canais-form-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.canais-form { display: flex; flex-direction: column; gap: 16px; }
+
+.cf-field { display: flex; flex-direction: column; gap: 6px; }
+.cf-field-inline { flex-direction: row; align-items: center; gap: 12px; }
+
+.cf-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cf-input {
+  font-family: var(--font);
+  font-size: 13px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text);
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.cf-input:focus { border-color: var(--accent); }
+
+.cf-hint { font-size: 11px; color: var(--muted); }
+.cf-erro { font-size: 12px; color: var(--danger, #e05555); }
+
+.cf-toggle {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.cf-toggle.ativo { background: rgba(200,241,53,0.12); border-color: rgba(200,241,53,0.3); color: var(--accent); }
+
+.cf-tiktok-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(255,0,80,0.05);
+  border: 1px solid rgba(255,0,80,0.2);
+  border-radius: 8px;
+}
+
+.cf-tiktok-status {
+  font-size: 12px;
+  color: var(--muted);
+}
+.cf-tiktok-status.conectado { color: var(--accent); }
+
+.cf-btn-tiktok {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background: rgba(255,0,80,0.12);
+  border: 1px solid rgba(255,0,80,0.3);
+  color: #ff2d55;
+  cursor: pointer;
+  transition: all 0.12s;
+  align-self: flex-start;
+  letter-spacing: 0.03em;
+}
+.cf-btn-tiktok:hover:not(:disabled) { background: rgba(255,0,80,0.2); }
+.cf-btn-tiktok:disabled { opacity: 0.4; cursor: default; }
+
+.cf-footer { display: flex; gap: 8px; justify-content: flex-end; padding-top: 8px; }
+
+.cf-btn-primary {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background: var(--accent);
+  border: none;
+  color: #0d0d0f;
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+.cf-btn-primary:hover:not(:disabled) { opacity: 0.88; }
+.cf-btn-primary:disabled { opacity: 0.4; cursor: default; }
+
+.cf-btn-secondary {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.cf-btn-secondary:hover { color: var(--text); border-color: var(--border2); }
+
+.cf-btn-danger {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 7px;
+  background: transparent;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: var(--danger, #e05555);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.cf-btn-danger:hover { background: rgba(255, 77, 77, 0.08); }
+
+@media (max-width: 768px) {
+  .canais-page[data-view="list"]   .canais-main    { display: none; }
+  .canais-page[data-view="detail"] .canais-sidebar { display: none; }
+
+  .canais-sidebar { width: 100%; border-right: none; }
+  .canais-main    { width: 100%; overflow-y: auto; }
+
+  .canais-form-wrap { padding: 16px; max-width: 100%; }
+  .canais-form-header { gap: 8px; }
+  .canais-novo-btns { gap: 4px; }
+
+  .cf-input { font-size: 16px; } /* prevents iOS zoom on focus */
+}

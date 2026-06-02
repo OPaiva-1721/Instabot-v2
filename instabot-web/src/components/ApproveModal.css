@@ -1,0 +1,130 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--surface, #1a1a1a);
+  border: 1px solid var(--border, #2a2a2a);
+  border-radius: 12px;
+  width: 340px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border, #2a2a2a);
+}
+
+.modal-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text, #e8e8e8);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted, #666);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+}
+
+.modal-close:hover {
+  color: var(--text, #e8e8e8);
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #666);
+}
+
+.modal-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.modal-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent, #D85A30);
+  cursor: pointer;
+}
+
+.modal-check-label {
+  font-size: 14px;
+  color: var(--text, #e8e8e8);
+}
+
+.modal-grupos {
+  padding-left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-select {
+  background: var(--input-bg, #111);
+  border: 1px solid var(--border, #2a2a2a);
+  border-radius: 6px;
+  color: var(--text, #e8e8e8);
+  font-size: 13px;
+  padding: 8px 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.modal-hint {
+  font-size: 12px;
+  color: var(--text-muted, #666);
+}
+
+.modal-erro {
+  font-size: 12px;
+  color: #e05555;
+}
+
+.modal-canal-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.modal-canal-badge.instagram { background: rgba(200,100,50,0.2); color: #e87040; }
+.modal-canal-badge.whatsapp  { background: rgba(50,200,100,0.15); color: #40c878; }
+.modal-canal-badge.telegram  { background: rgba(0,136,204,0.15); color: #29a8e0; }
+.modal-canal-badge.tiktok    { background: rgba(255,0,80,0.12);  color: #ff2d55; }
+
+.modal-footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border, #2a2a2a);
+}

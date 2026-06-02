@@ -1,0 +1,244 @@
+.nichos-page { display: flex; flex: 1; overflow: hidden; }
+
+.nichos-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.nichos-sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nichos-sidebar-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.nichos-novo-btn {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+  line-height: 1;
+}
+.nichos-novo-btn:hover { color: var(--text); border-color: var(--border2); }
+
+.nichos-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nichos-empty-sidebar {
+  padding: 16px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.nicho-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.12s;
+  width: 100%;
+}
+.nicho-item:hover { background: var(--bg3); border-color: var(--border); }
+.nicho-item.active { background: var(--bg3); border-color: var(--accent); }
+
+.nicho-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.nicho-nome { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nicho-kw { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.nicho-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+.nicho-dot.ativo { background: var(--accent); }
+
+.nichos-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.nichos-empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.nichos-form-wrap { padding: 24px; max-width: 560px; }
+
+.nichos-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.nichos-form-title { font-size: 15px; font-weight: 600; }
+
+.nichos-form { display: flex; flex-direction: column; gap: 14px; }
+
+.nf-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nf-field { display: flex; flex-direction: column; gap: 6px; }
+.nf-field-sm { max-width: 160px; }
+
+.nf-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nf-input, .nf-textarea {
+  font-family: var(--font);
+  font-size: 13px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text);
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.nf-input:focus, .nf-textarea:focus { border-color: var(--accent); }
+.nf-textarea { resize: vertical; min-height: 80px; }
+
+.nf-hint { font-size: 11px; color: var(--muted); }
+.nf-erro { font-size: 12px; color: var(--danger, #e05555); }
+
+.nf-canais-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.nf-canal-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.nf-canal-check input[type="checkbox"] {
+  width: 15px; height: 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.nf-canal-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.nf-canal-badge.instagram { background: rgba(200,100,50,0.2); color: #e87040; }
+.nf-canal-badge.whatsapp  { background: rgba(50,200,100,0.15); color: #40c878; }
+.nf-canal-badge.telegram  { background: rgba(0,136,204,0.15); color: #29a8e0; }
+.nf-canal-badge.tiktok    { background: rgba(255,0,80,0.12);  color: #ff2d55; }
+
+.nf-canal-nome { color: var(--text); }
+.nf-canal-inativo { font-size: 11px; color: var(--muted); margin-left: 4px; }
+
+.nf-footer { display: flex; gap: 8px; justify-content: flex-end; padding-top: 8px; }
+
+.nf-btn-primary {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background: var(--accent);
+  border: none;
+  color: #0d0d0f;
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+.nf-btn-primary:hover:not(:disabled) { opacity: 0.88; }
+.nf-btn-primary:disabled { opacity: 0.4; cursor: default; }
+
+.nf-btn-secondary {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.nf-btn-secondary:hover { color: var(--text); border-color: var(--border2); }
+
+.nf-btn-danger {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 7px;
+  background: transparent;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: var(--danger, #e05555);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.nf-btn-danger:hover { background: rgba(255, 77, 77, 0.08); }
+
+@media (max-width: 768px) {
+  .nichos-page[data-view="list"]   .nichos-main    { display: none; }
+  .nichos-page[data-view="detail"] .nichos-sidebar { display: none; }
+
+  .nichos-sidebar { width: 100%; border-right: none; }
+  .nichos-main    { width: 100%; overflow-y: auto; }
+
+  .nichos-form-wrap { padding: 16px; max-width: 100%; }
+  .nichos-form-header { gap: 8px; }
+
+  .nf-input, .nf-textarea { font-size: 16px; }
+}
