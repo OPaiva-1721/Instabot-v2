@@ -20,7 +20,7 @@ if (BACKEND) {
     }
   }
   app.use('/api', createProxyMiddleware({ ...proxyOpts, pathRewrite: { '^/api': '' } }))
-  app.use('/tiktok', createProxyMiddleware(proxyOpts))
+  app.use('/tiktok', createProxyMiddleware({ ...proxyOpts, pathRewrite: { '^': '/tiktok' } }))
   console.log(`[proxy] /api, /tiktok → ${BACKEND}`)
 } else {
   console.warn('[proxy] BACKEND_URL não configurada')
