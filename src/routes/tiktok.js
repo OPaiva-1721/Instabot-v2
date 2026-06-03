@@ -53,14 +53,15 @@ export default async function tiktokRoutes(app) {
 
     const redirectUri = `${publicUrl}/tiktok/callback`
 
-    const url = new URL(AUTH_URL)
-    url.searchParams.set('client_key',     config.client_key)
-    url.searchParams.set('scope',          SCOPE)
-    url.searchParams.set('response_type',  'code')
-    url.searchParams.set('redirect_uri',   redirectUri)
-    url.searchParams.set('state',          String(canal_id))
+    const params = new URLSearchParams({
+      client_key:    config.client_key,
+      response_type: 'code',
+      redirect_uri:  redirectUri,
+      state:         String(canal_id)
+    })
+    const authUrl = `${AUTH_URL}?${params.toString()}&scope=${SCOPE}`
 
-    return reply.redirect(url.toString())
+    return reply.redirect(authUrl)
   })
 
   // Callback do OAuth — TikTok redireciona aqui
@@ -103,7 +104,7 @@ export default async function tiktokRoutes(app) {
         throw new Error(tokenData.error.message || JSON.stringify(tokenData.error))
       }
 
-      const tokens = tokenData.data
+      const tokens = tokenData.data ?? tokenData
 
       // Busca nome da conta
       let displayName = ''

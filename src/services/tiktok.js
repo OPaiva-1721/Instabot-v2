@@ -53,34 +53,42 @@ export async function publicarPost(produto, imagemUrl, config, canalId) {
 
   config = await refreshIfNeeded(canalId, config)
 
-  const caption = produto.copy
+  const body = produto.copy
     ? `${produto.copy}\n\n${produto.hashtags}`.slice(0, 2200)
     : buildCaption(produto).slice(0, 2200)
 
-  const { data } = await axios.post(POST_URL,
-    {
-      post_info: {
-        title:           caption,
-        privacy_level:   config.privacy_level || 'PUBLIC_TO_EVERYONE',
-        disable_duet:    false,
-        disable_comment: false,
-        disable_stitch:  false
+  const nomeCurto = (produto.nome_limpo || produto.nome).slice(0, 90)
+
+  let data
+  try {
+    ;({ data } = await axios.post(POST_URL,
+      {
+        post_info: {
+          title:           nomeCurto,
+          description:     body,
+          privacy_level:   config.privacy_level || 'SELF_ONLY',
+          disable_comment: false,
+          auto_add_music:  true
+        },
+        source_info: {
+          source:             'PULL_FROM_URL',
+          photo_images:       [imagemUrl],
+          photo_cover_index:  0
+        },
+        post_mode:  'DIRECT_POST',
+        media_type: 'PHOTO'
       },
-      source_info: {
-        source:             'PULL_FROM_URL',
-        photo_images:       [imagemUrl],
-        photo_cover_index:  0
-      },
-      post_mode:  'DIRECT_POST',
-      media_type: 'PHOTO'
-    },
-    {
-      headers: {
-        Authorization:  `Bearer ${config.access_token}`,
-        'Content-Type': 'application/json; charset=UTF-8'
+      {
+        headers: {
+          Authorization:  `Bearer ${config.access_token}`,
+          'Content-Type': 'application/json; charset=UTF-8'
+        }
       }
-    }
-  )
+    ))
+  } catch (e) {
+    const detail = e.response?.data
+    throw new Error(detail ? JSON.stringify(detail) : e.message)
+  }
 
   if (data.error?.code && data.error.code !== 'ok') {
     throw new Error(data.error.message || JSON.stringify(data.error))
