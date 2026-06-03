@@ -8,10 +8,9 @@ const app = express()
 const BACKEND = process.env.BACKEND_URL?.replace(/\/$/, '')
 
 if (BACKEND) {
-  app.use('/api', createProxyMiddleware({
+  const proxyOpts = {
     target: BACKEND,
     changeOrigin: true,
-    pathRewrite: { '^/api': '' },
     headers: { 'ngrok-skip-browser-warning': 'true' },
     on: {
       error: (err, req, res) => {
@@ -19,8 +18,10 @@ if (BACKEND) {
         res.status(502).json({ error: 'backend indisponível' })
       }
     }
-  }))
-  console.log(`[proxy] /api → ${BACKEND}`)
+  }
+  app.use('/api', createProxyMiddleware({ ...proxyOpts, pathRewrite: { '^/api': '' } }))
+  app.use('/tiktok', createProxyMiddleware(proxyOpts))
+  console.log(`[proxy] /api, /tiktok → ${BACKEND}`)
 } else {
   console.warn('[proxy] BACKEND_URL não configurada')
 }
